@@ -433,8 +433,11 @@ return democraticsArray;
 // Iteration 3 | Count Years in Office - reduce()
 function  countYearsInOffice(presidentsArr) {
   return presidentsArr.reduce((accumulator, president) => {
-    const yearsInOffice = president.leftOffice - president.tookOffice;
-    return accumulator + yearsInOffice;
+    if (president.leftOffice !== null) {
+      const yearsInOffice = president.leftOffice - president.tookOffice;
+      return accumulator + yearsInOffice;
+    }
+    return accumulator;   
   }, 0);
 }
 
